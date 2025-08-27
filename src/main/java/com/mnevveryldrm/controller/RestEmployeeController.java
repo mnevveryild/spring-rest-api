@@ -1,6 +1,7 @@
 package com.mnevveryldrm.controller;
 
 import com.mnevveryldrm.model.Employee;
+import com.mnevveryldrm.model.updateEmployeeRequest;
 import com.mnevveryldrm.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,25 @@ public class RestEmployeeController {
         return employeeService.getEmployeeWithParams(firstName,lastName);
 
     }
+
+    @PostMapping(path = "/save-employee")
+    public Employee saveEmployee(@RequestBody Employee newEmployee){
+        return employeeService.saveEmployee(newEmployee);
+    }
+
+    @DeleteMapping(path = "/delete-employee/{id}")
+    public boolean deleteEmployee(@PathVariable(name = "id")String id){
+
+        return employeeService.deleteEmployee(id);
+    }
+
+    @PutMapping(path = "/update-employee/{id}")
+    public Employee updateEmployee(@PathVariable(name = "id")String id, @RequestBody updateEmployeeRequest request){
+
+        return employeeService.updateEmployee(id, request);
+
+    }
+
 
 
 }

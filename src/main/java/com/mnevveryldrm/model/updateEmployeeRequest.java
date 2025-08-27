@@ -2,34 +2,19 @@ package com.mnevveryldrm.model;
 
 import lombok.*;
 
-
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
-
 @Setter
-
 @Data
-public class Employee {
+public class updateEmployeeRequest {
 
-    private String id;
     private String firstname;
     private String lastname;
 
-    public Employee(String id, String firstname, String lastname) {
-        this.id = id;
+    public updateEmployeeRequest(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
-    }
-
-    public Employee() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getFirstname() {
